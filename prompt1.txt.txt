@@ -1,0 +1,5 @@
+Chat gpt, cree dos juegos uno se trata sobre recoger limones, tenemos 3 vidas y el personaje se mueve de izquierda a derecha.
+También esta el otro juego que se trata sobre cazar la comida de un gatito.
+quiero hacer un menú para presentar mis juegos 
+quiero un estilo retro gamer con letras en neon color azul
+ 

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arcade Menu - Neon Edition</title>
+    <!-- Fuentes Gamer desde Google Fonts -->
+    <link href="https://googleapis.com" rel="stylesheet">
+    
+    <style>
+        /* Animación de parpadeo neón (Flicker Effect) */
+        @keyframes flicker {
+            0%, 18%, 22%, 25%, 53%, 57%, 100% {
+                text-shadow: 0 0 4px #fff, 0 0 11px #fff, 0 0 19px #facc15, 0 0 40px #facc15, 0 0 80px #facc15;
+            }
+            20%, 24%, 55% {        
+                text-shadow: none;
+            }
+        }
+
+        /* Estilos Base */
+        body {
+            font-family: 'Orbitron', sans-serif;
+            background-color: #05050a;
+            background-image: url('cl..jpg');
+            background-repeat:no-repeat;
+            background-size: cover;
+            color: #ffffff;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Encabezado Principal */
+        .encabezado {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .encabezado h1 {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #fff;
+            /* Aplicamos el efecto de parpadeo neón amarillo */
+            animation: flicker 3s infinite alternate;
+            margin-bottom: 15px;
+            letter-spacing: 3px;
+        }
+
+        .encabezado p {
+            color: #8ab4f8;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 0 8px rgba(138, 180, 248, 0.6);
+        }
+
+        /* Contenedor de las Tarjetas */
+        .menu-grid {
+            display: flex;
+            gap: 50px;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 950px;
+            width: 100%;
+            padding: 20px;
+        }
+
+        /* Estilo Base de las Tarjetas de Juego */
+        .game-card {
+            background: rgba(10, 10, 20, 0.85);
+            border: 2px solid #1e1e38;
+            border-radius: 16px;
+            padding: 35px;
+            width: 290px;
+            text-align: center;
+            position: relative;
+            transition: all 0.4s ease-in-out;
+        }
+
+        .game-card h2 {
+            font-size: 1.9rem;
+            margin-top: 0;
+            letter-spacing: 2px;
+        }
+
+        .game-card p {
+            color: #cbd5e1;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 35px;
+            min-height: 70px;
+        }
+
+        /* Botón Base */
+        .btn-game {
+            display: inline-block;
+            width: 90%;
+            padding: 14px 0;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.85rem;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        /* --- CONFIGURACIÓN NEÓN ESPECÍFICA POR JUEGO --- */
+
+        /* 1. Tarjeta Cazando (Neón Rosa/Magenta) */
+        .cazando-card {
+            box-shadow: 0 0 15px rgba(255, 0, 128, 0.1), inset 0 0 15px rgba(255, 0, 128, 0.05);
+        }
+        .cazando-card h2 {
+            color: #ff0080;
+            text-shadow: 0 0 10px rgba(255, 0, 128, 0.6);
+        }
+        .cazando-card .btn-game {
+            color: #ff0080;
+            background: transparent;
+            border: 2px solid #ff0080;
+            box-shadow: 0 0 10px rgba(255, 0, 128, 0.4);
+        }
+        /* Efecto Hover Cazando */
+        .cazando-card:hover {
+            transform: scale(1.05) translateY(-5px);
+            border-color: #ff0080;
+            box-shadow: 0 0 30px rgba(255, 0, 128, 0.6), inset 0 0 15px rgba(255, 0, 128, 0.3);
+        }
+        .cazando-card .btn-game:hover {
+            background: #ff0080;
+            color: #111;
+            box-shadow: 0 0 20px #ff0080;
+        }
+
+
+        /* 2. Tarjeta Limones (Neón Cyan/Verde Eléctrico) */
+        .limones-card {
+            box-shadow: 0 0 15px rgba(0, 242, 254, 0.1), inset 0 0 15px rgba(0, 242, 254, 0.05);
+        }
+        .limones-card h2 {
+            color: #00f2fe;
+            text-shadow: 0 0 10px rgba(0, 242, 254, 0.6);
+        }
+        .limones-card .btn-game {
+            color: #00f2fe;
+            background: transparent;
+            border: 2px solid #00f2fe;
+            box-shadow: 0 0 10px rgba(0, 242, 254, 0.4);
+        }
+        /* Efecto Hover Limones */
+        .limones-card:hover {
+            transform: scale(1.05) translateY(-5px);
+            border-color: #00f2fe;
+            box-shadow: 0 0 30px rgba(0, 242, 254, 0.6), inset 0 0 15px rgba(0, 242, 254, 0.3);
+        }
+        .limones-card .btn-game:hover {
+            background: #00f2fe;
+            color: #111;
+            box-shadow: 0 0 20px #00f2fe;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Título con parpadeo arcade -->
+    <div class="encabezado">
+        <h1>SELECT LEVEL</h1>
+        <p>— Insert Coin para comenzar —</p>
+    </div>
+
+    <!-- Menú Neón -->
+    <div class="menu-grid">
+        
+        <!-- Misión: Cazando -->
+        <div class="game-card cazando-card">
+            <h2>🎯 CAZANDO</h2>
+            <p>Pon a prueba tus reflejos rápidos. Controla las direcciones y caza los objetivos antes de que el reloj llegue a cero.</p>
+            <a href="https://juego-cazando-final.vercel.app/" class="btn-game">PLAY</a>
+        </div>
+
+        <!-- Misión: Limones -->
+        <div class="game-card limones-card">
+            <h2>🍋 LIMONES</h2>
+            <p>¡El suelo es lava para las frutas! Muévete rápido de izquierda a derecha y salva tus 3 vidas del desastre.</p>
+            <a href="https://juego-limones-1ivv.vercel.app" class="btn-game">PLAY</a>
+        </div>
+
+    </div>
+
+</body>
+</html>
